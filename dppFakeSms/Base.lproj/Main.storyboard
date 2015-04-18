@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1066" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Lc8-Zt-sso">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Init-->
+        <scene sceneID="iO0-D7-tUj">
+            <objects>
+                <viewController title="Init" id="BOP-cQ-UIT" customClass="InitViewController" customModule="dppFakeSms" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QvJ-uj-x0O"/>
+                        <viewControllerLayoutGuide type="bottom" id="TfM-AE-nbD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Axb-pn-AAx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Vl-A8-4ld">
+                                <rect key="frame" x="65" y="185" width="246" height="247"/>
+                                <state key="normal" image="whipster">
+                                    <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="fakeAction:" destination="BOP-cQ-UIT" eventType="touchUpInside" id="SD4-3c-lb8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UkD-dw-cNj">
+                                <rect key="frame" x="68" y="442" width="241" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="poslat SMS jízdenku"/>
+                                <connections>
+                                    <action selector="fakeAction:" destination="BOP-cQ-UIT" eventType="touchUpInside" id="uEE-4c-gMe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UkD-dw-cNj" firstAttribute="centerX" secondItem="3Vl-A8-4ld" secondAttribute="centerX" id="IKn-TP-tBX"/>
+                            <constraint firstItem="3Vl-A8-4ld" firstAttribute="centerY" secondItem="Axb-pn-AAx" secondAttribute="centerY" constant="-25" id="WbC-uB-dgA"/>
+                            <constraint firstItem="3Vl-A8-4ld" firstAttribute="centerX" secondItem="Axb-pn-AAx" secondAttribute="centerX" id="YZZ-mt-x1R"/>
+                            <constraint firstItem="UkD-dw-cNj" firstAttribute="top" secondItem="3Vl-A8-4ld" secondAttribute="bottom" constant="10" id="ygU-7t-VXA"/>
+                            <constraint firstItem="3Vl-A8-4ld" firstAttribute="leading" secondItem="Axb-pn-AAx" secondAttribute="leadingMargin" constant="21" id="zcI-IT-qMg"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="zcI-IT-qMg"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="DPP FU SMS App" id="c1O-z1-u2b">
+                        <barButtonItem key="backBarButtonItem" title="Zprávy" id="35K-yO-QGX"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="jEF-FP-QaI">
+                            <connections>
+                                <action selector="fakeAction:" destination="BOP-cQ-UIT" id="v2O-Ia-del"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="logo" destination="3Vl-A8-4ld" id="Jcy-Ph-uqc"/>
+                        <segue destination="idV-wd-SzT" kind="custom" identifier="messages" customClass="CustomSeque" customModule="dppFakeSms" customModuleProvider="target" id="GrF-RU-s0l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GDT-RF-mfu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="822.5" y="123.5"/>
+        </scene>
+        <!--messages-->
+        <scene sceneID="yDX-E4-hrq">
+            <objects>
+                <viewController title="messages" id="idV-wd-SzT" customClass="MessagesViewController" customModule="dppFakeSms" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z3F-Gy-4r9"/>
+                        <viewControllerLayoutGuide type="bottom" id="hVm-1H-LJE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4U2-LP-5ur">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fOJ-Of-kCk">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="idV-wd-SzT" id="IwV-65-o1m"/>
+                                    <outlet property="delegate" destination="idV-wd-SzT" id="tsZ-iV-I3S"/>
+                                </connections>
+                            </tableView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="toolbar" translatesAutoresizingMaskIntoConstraints="NO" id="vsr-I0-3ei">
+                                <rect key="frame" x="0.0" y="622" width="375" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Gp5-Sw-3IW"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fOJ-Of-kCk" firstAttribute="top" secondItem="Z3F-Gy-4r9" secondAttribute="bottom" id="9Tj-7Q-Pna"/>
+                            <constraint firstItem="fOJ-Of-kCk" firstAttribute="leading" secondItem="4U2-LP-5ur" secondAttribute="leading" id="FM0-ax-pDe"/>
+                            <constraint firstAttribute="trailing" secondItem="vsr-I0-3ei" secondAttribute="trailing" id="KYd-Ht-fE1"/>
+                            <constraint firstItem="vsr-I0-3ei" firstAttribute="leading" secondItem="4U2-LP-5ur" secondAttribute="leading" id="oyY-H0-OSx"/>
+                            <constraint firstAttribute="trailing" secondItem="fOJ-Of-kCk" secondAttribute="trailing" id="sxd-z0-rMo"/>
+                            <constraint firstItem="vsr-I0-3ei" firstAttribute="bottom" secondItem="hVm-1H-LJE" secondAttribute="top" id="z9e-YB-FsK"/>
+                            <constraint firstItem="vsr-I0-3ei" firstAttribute="top" secondItem="fOJ-Of-kCk" secondAttribute="bottom" constant="-1" id="zqo-Ha-a6W"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="902 060 24" id="9FW-vN-OZo">
+                        <barButtonItem key="backBarButtonItem" title="Zprávy" id="s25-Z8-pTQ"/>
+                        <barButtonItem key="rightBarButtonItem" title="Podrobnosti" id="X49-2e-m8N"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="fOJ-Of-kCk" id="8ZC-nS-39D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="irR-DP-2KI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1280.5" y="123.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="CqX-YN-4UD">
+            <objects>
+                <navigationController id="Lc8-Zt-sso" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GVw-0b-vEZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" id="F4r-V8-JAu">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="BOP-cQ-UIT" kind="relationship" relationship="rootViewController" id="DkD-GG-2YF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="izD-Gm-l3c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="358" y="124"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="toolbar" width="311" height="45"/>
+        <image name="whipster" width="246" height="247"/>
+    </resources>
+</document>
