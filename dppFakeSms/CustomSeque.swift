@@ -12,7 +12,7 @@ class CustomSeque: UIStoryboardSegue {
     
     
     override func perform() {
-        sourceViewController.navigationController!?.pushViewController(destinationViewController as UIViewController, animated: false)
+        sourceViewController.navigationController!.pushViewController(destinationViewController as UIViewController, animated: false)
     }
     
 }

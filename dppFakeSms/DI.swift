@@ -24,7 +24,7 @@ class DI : NSObject {
     
     
     var appDelegate: AppDelegate {
-        return application.delegate as AppDelegate!
+        return application.delegate as! AppDelegate!
     }
     
     var viewController: UIViewController? {

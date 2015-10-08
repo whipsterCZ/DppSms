@@ -1,39 +1,11 @@
 {
   "images" : [
     {
-      "resizing" : {
-        "mode" : "9-part",
-        "center" : {
-          "mode" : "fill",
-          "width" : 1,
-          "height" : 1
-        },
-        "capInsets" : {
-          "bottom" : 32,
-          "top" : 135,
-          "right" : 23,
-          "left" : 196
-        }
-      },
       "idiom" : "universal",
       "filename" : "sms.png",
       "scale" : "1x"
     },
     {
-      "resizing" : {
-        "mode" : "9-part",
-        "center" : {
-          "mode" : "fill",
-          "width" : 1,
-          "height" : 1
-        },
-        "capInsets" : {
-          "bottom" : 149,
-          "top" : 186,
-          "right" : 51,
-          "left" : 388
-        }
-      },
       "idiom" : "universal",
       "filename" : "sms@2x.png",
       "scale" : "2x"

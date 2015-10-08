@@ -45,7 +45,7 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
     
      func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as TableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! TableViewCell
         let message = DI.context.appDelegate.messages[indexPath.item]
         cell.dateLabel.text = message.getRecievedAt()
         cell.dateFromLabel.text = message.getFromDay()
@@ -53,7 +53,7 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
         cell.timeFromLabel.text = message.getFromTime()
         cell.timeToLabel.text = message.getToTime()
         cell.priceLabel.text = message.getPrice()
-        cell.codeLabel.text = message.getCodeString()
+        cell.codeLabel.text = message.getCodeString() + " /"
         cell.codeIntLabel.text = message.getCodeInt()
         
         

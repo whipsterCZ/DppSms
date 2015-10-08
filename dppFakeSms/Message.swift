@@ -27,8 +27,8 @@ class Message {
     var dateTo = NSDate()
     
     init(type:MessageType, from:NSDate) {
-        date = from.copy() as NSDate
-        dateTo = from.copy() as NSDate
+        date = from.copy() as! NSDate
+        dateTo = from.copy() as! NSDate
         setType(type)
     }
     
@@ -52,35 +52,35 @@ class Message {
     }
     
     func getFromDay()->String {
-        var formater = NSDateFormatter()
+        let formater = NSDateFormatter()
         formater.dateFormat = "d.M.YY"
         return formater.stringFromDate(date)
     }
 
     func getToDay()->String {
-        var formater = NSDateFormatter()
+        let formater = NSDateFormatter()
         formater.dateFormat = "d.M.YY"
         return formater.stringFromDate(dateTo)
     }
     
     func getFromTime()->String {
-        var formater = NSDateFormatter()
+        let formater = NSDateFormatter()
         formater.dateFormat = "HH:mm"
         return formater.stringFromDate(date)
     }
     
     func getToTime()->String {
-        var formater = NSDateFormatter()
+        let formater = NSDateFormatter()
         formater.dateFormat = "HH:mm"
         return formater.stringFromDate(dateTo)
     }
     
     func getCodeString()->String    {
-        return randomStringWithLength(9)
+        return randomStringWithLength(9) as String
     }
     
     func getCodeInt()->String    {
-        return randomIntWithLength(6)
+        return randomIntWithLength(6) as String
     }
     
     func getPrice() ->String    {
@@ -99,11 +99,19 @@ class Message {
        
         let calendar = NSCalendar.currentCalendar()
         
-        if  calendar.isDateInToday(date) {
-            return "Dnes " + getFromTime()
+        if #available(iOS 8.0, *) {
+            if  calendar.isDateInToday(date) {
+                return "Dnes " + getFromTime()
+            }
+        } else {
+            // Fallback on earlier versions
         }
-        if calendar.isDateInYesterday(date)  {
-            return "Včera " + getFromTime()
+        if #available(iOS 8.0, *) {
+            if calendar.isDateInYesterday(date)  {
+                return "Včera " + getFromTime()
+            }
+        } else {
+            // Fallback on earlier versions
         }
         return getFromDay() + " " + getFromTime()
         
@@ -117,21 +125,21 @@ class Message {
         var array = [Message]()
         
         
-        for i in -30..<0 {
-            var interval =  Double( (i * 86400) - (random() % 3600) )
-            var date = NSDate().dateByAddingTimeInterval( interval )
+        for i in -20..<0 {
+            let interval =  Double( (i * 86400) - (random() % 3600) )
+            let date = NSDate().dateByAddingTimeInterval( interval )
             
             
             var type = MessageType.kc24
             if ( random() % 10 < 3) {
                 type = MessageType.kc32
             }
-            var message = Message(type: type, from:date)
+            let message = Message(type: type, from:date)
             
             array.append(message)
          }
         
-        var theMessage = Message(type: .kc24)
+        let theMessage = Message(type: .kc24)
         array.append(theMessage)
         
         
@@ -143,11 +151,11 @@ class Message {
         
         let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         
-        var randomString : NSMutableString = NSMutableString(capacity: len)
+        let randomString : NSMutableString = NSMutableString(capacity: len)
         
         for (var i=0; i < len; i++){
-            var length = UInt32 (letters.length)
-            var rand = arc4random_uniform(length)
+            let length = UInt32 (letters.length)
+            let rand = arc4random_uniform(length)
             randomString.appendFormat("%C", letters.characterAtIndex(Int(rand)))
         }
         
@@ -158,11 +166,11 @@ class Message {
         
         let letters : NSString = "0123456789"
         
-        var randomString : NSMutableString = NSMutableString(capacity: len)
+        let randomString : NSMutableString = NSMutableString(capacity: len)
         
         for (var i=0; i < len; i++){
-            var length = UInt32 (letters.length)
-            var rand = arc4random_uniform(length)
+            let length = UInt32 (letters.length)
+            let rand = arc4random_uniform(length)
             randomString.appendFormat("%C", letters.characterAtIndex(Int(rand)))
         }
         
